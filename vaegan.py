@@ -15,7 +15,7 @@ class vaegan(object):
 
     #build model
     def __init__(self, batch_size, max_iters, repeat, model_path, data_ob, 
-                latent_dim, sample_path, log_dir, learnrate_init, is_crop=True):
+                latent_dim, sample_path, log_dir, learnrate_init, is_crop=True, channel=3):
 
         self.batch_size = batch_size
         self.max_iters = max_iters
@@ -28,7 +28,7 @@ class vaegan(object):
         self.learn_rate_init = learnrate_init
         self.log_vars = []
 
-        self.channel = 3
+        self.channel = channel
         self.is_crop = is_crop
         self.output_size = data_ob.image_size
         self.images = tf.placeholder(tf.float32, [self.batch_size, self.output_size, self.output_size, self.channel])
@@ -240,7 +240,7 @@ class vaegan(object):
             d2 = tf.nn.relu(batch_normal(de_conv(d2 , output_shape=[self.batch_size, 16, 16, 256], name='gen_deconv2'), scope='gen_bn2', reuse=reuse))
             d3 = tf.nn.relu(batch_normal(de_conv(d2, output_shape=[self.batch_size, 32, 32, 128], name='gen_deconv3'), scope='gen_bn3', reuse=reuse))
             d4 = tf.nn.relu(batch_normal(de_conv(d3, output_shape=[self.batch_size, 64, 64, 32], name='gen_deconv4'), scope='gen_bn4', reuse=reuse))
-            d5 = de_conv(d4, output_shape=[self.batch_size, 64, 64, 3], name='gen_deconv5', d_h=1, d_w=1)
+            d5 = de_conv(d4, output_shape=[self.batch_size, self.output_size, self.output_size, self.channel], name='gen_deconv5', d_h=1, d_w=1)
 
             return tf.nn.tanh(d5)
 
