@@ -14,7 +14,8 @@ g_scale_factor =  1 - 0.75/2
 class vaegan(object):
 
     #build model
-    def __init__(self, batch_size, max_iters, repeat, model_path, data_ob, latent_dim, sample_path, log_dir, learnrate_init):
+    def __init__(self, batch_size, max_iters, repeat, model_path, data_ob, 
+                latent_dim, sample_path, log_dir, learnrate_init, is_crop=True):
 
         self.batch_size = batch_size
         self.max_iters = max_iters
@@ -28,6 +29,7 @@ class vaegan(object):
         self.log_vars = []
 
         self.channel = 3
+        self.is_crop = is_crop
         self.output_size = data_ob.image_size
         self.images = tf.placeholder(tf.float32, [self.batch_size, self.output_size, self.output_size, self.channel])
         self.ep = tf.random_normal(shape=[self.batch_size, self.latent_dim])
@@ -284,7 +286,7 @@ class vaegan(object):
 
     def _read_by_function(self, filename):
 
-        array = get_image(filename, 108, is_crop=True, resize_w=self.output_size,
+        array = get_image(filename, 108, is_crop=self.is_crop, resize_w=self.output_size,
                            is_grayscale=False)
         real_images = np.array(array)
         return real_images
