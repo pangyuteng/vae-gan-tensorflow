@@ -288,6 +288,8 @@ class vaegan(object):
 
         array = get_image(filename, 108, is_crop=self.is_crop, resize_w=self.output_size,
                            is_grayscale=False)
+        if self.channel == 1:
+            array = np.expand_dims(array,axis=-1)
         real_images = np.array(array)
         return real_images
 
