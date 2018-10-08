@@ -253,8 +253,8 @@ class vaegan(object):
             conv3 = tf.nn.relu(batch_normal(conv2d(conv2 , output_dim=256, name='e_c3'), scope='e_bn3'))
             conv3 = tf.reshape(conv3, [self.batch_size, 256 * 8 * 8])
             fc1 = tf.nn.relu(batch_normal(fully_connect(conv3, output_size=1024, scope='e_f1'), scope='e_bn4'))
-            z_mean = fully_connect(fc1 , output_size=128, scope='e_f2')
-            z_sigma = fully_connect(fc1, output_size=128, scope='e_f3')
+            z_mean = fully_connect(fc1 , output_size=self.latent_dim, scope='e_f2')
+            z_sigma = fully_connect(fc1, output_size=self.latent_dim, scope='e_f3')
 
             return z_mean, z_sigma
 
