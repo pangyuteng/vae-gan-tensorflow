@@ -1,0 +1,13 @@
+mkdir luna16
+python get_drive_file.py 1uvO7pPLhRUt5meBaLzcxzfqeuyjxo6Nv luna16/1uvO7pPLhRUt5meBaLzcxzfqeuyjxo6Nv.nii.gz
+python get_drive_file.py 1Jsv3Sa5ptxwcrfQdJaRQFRXQxOgZlHWD luna16/1Jsv3Sa5ptxwcrfQdJaRQFRXQxOgZlHWD.nii.gz
+python get_drive_file.py 1F4o_mzsH7yin1UvdZEA48Lp_Ucdp14eW luna16/1F4o_mzsH7yin1UvdZEA48Lp_Ucdp14eW.nii.gz
+python get_drive_file.py 1WzpEEB_dgB0PVZ_L6L0WLmCDNv5Gxwiy luna16/1WzpEEB_dgB0PVZ_L6L0WLmCDNv5Gxwiy.nii.gz
+python get_drive_file.py 1HDPhqhpBYLvk5NCHPHcmvq-Tudgkex7Y luna16/1HDPhqhpBYLvk5NCHPHcmvq-Tudgkex7Y.nii.gz
+python get_drive_file.py 1pD_WjM6C0XJW8BO62lE6W2K73xIT7ZGk luna16/1pD_WjM6C0XJW8BO62lE6W2K73xIT7ZGk.nii.gz
+python get_drive_file.py 1nMoD8JfSqF9qjfCGsB0h_Ej7fglkcXLe luna16/1nMoD8JfSqF9qjfCGsB0h_Ej7fglkcXLe.nii.gz
+python get_drive_file.py 1NoSjPWfPVM0T0e8jFC3vYn4dCtlPU02P luna16/1NoSjPWfPVM0T0e8jFC3vYn4dCtlPU02P.nii.gz
+python get_drive_file.py 1H-qgw1v8pTM1h7M9H4wwEWjDWbXUChTt luna16/1H-qgw1v8pTM1h7M9H4wwEWjDWbXUChTt.nii.gz
+python get_drive_file.py 1xzUktkcR94eGD6f604eePT5sSUxuMpyj luna16/1xzUktkcR94eGD6f604eePT5sSUxuMpyj.nii.gz
+python get_drive_file.py 1Q6paIk-2JEF6lrj3TXi-UI0sAbWZUmjc luna16/1Q6paIk-2JEF6lrj3TXi-UI0sAbWZUmjc.nii.gz
+python get_drive_file.py 1YbUnOJdtGw2o-7dJvydrwkzRciML7Cso luna16/1YbUnOJdtGw2o-7dJvydrwkzRciML7Cso.nii.gz
