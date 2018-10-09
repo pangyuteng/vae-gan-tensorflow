@@ -43,8 +43,7 @@ class vaegan(object):
         self.dataset = self.dataset.apply(tf.contrib.data.batch_and_drop_remainder(batch_size))
 
         self.iterator = tf.data.Iterator.from_structure(self.dataset.output_types, self.dataset.output_shapes)
-        #self.next_x = tf.squeeze(self.iterator.get_next())
-        self.next_x = self.iterator.get_next()
+        self.next_x = tf.squeeze(self.iterator.get_next(),axis=0)
         self.training_init_op = self.iterator.make_initializer(self.dataset)
 
     def build_model_vaegan(self):
