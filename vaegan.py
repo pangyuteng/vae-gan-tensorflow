@@ -33,7 +33,7 @@ class vaegan(object):
             self.is_grayscale = True
         else:
             self.is_grayscale = False
-            
+
         self.is_crop = is_crop
         self.output_size = data_ob.image_size
         self.images = tf.placeholder(tf.float32, [self.batch_size, self.output_size, self.output_size, self.channel])
@@ -294,6 +294,7 @@ class vaegan(object):
         array = get_image(filename, 108, is_crop=self.is_crop, resize_w=self.output_size,
                            is_grayscale=self.is_grayscale)
         real_images = np.array(array)
+        print(real_images.shape)
         #if self.channel == 1 and len(real_images.shape)==2:
         #    real_images = np.expand_dims(real_images,axis=-1)
         return real_images
