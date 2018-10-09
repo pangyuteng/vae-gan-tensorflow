@@ -29,7 +29,7 @@ fpath_list = [os.path.join('luna16',x) for x in os.listdir('luna16') if x.endswi
 for row in fpath_list:
     print(row)
 
- data = {
+data = {
     'train_data_list':[],
     'train_lab_list':[],
 }
@@ -59,4 +59,4 @@ import yaml
 with open('data.yml','w') as f:
     f.write(yaml.dump(data))
 
-    
+
