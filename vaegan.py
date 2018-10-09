@@ -41,8 +41,9 @@ class vaegan(object):
                                                                             [filename], [tf.double])), num_parallel_calls=16)
         self.dataset = self.dataset.repeat(self.repeat_num)
         self.dataset = self.dataset.apply(tf.contrib.data.batch_and_drop_remainder(batch_size))
-        
+
         self.iterator = tf.data.Iterator.from_structure(self.dataset.output_types, [self.output_size, self.output_size, self.channel])
+        #self.next_x = tf.squeeze(self.iterator.get_next())
         self.next_x = self.iterator.get_next()
         self.training_init_op = self.iterator.make_initializer(self.dataset)
 
