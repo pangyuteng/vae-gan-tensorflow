@@ -42,7 +42,8 @@ class vaegan(object):
         self.dataset = self.dataset.repeat(self.repeat_num)
         self.dataset = self.dataset.apply(tf.contrib.data.batch_and_drop_remainder(batch_size))
 
-        self.iterator = tf.data.Iterator.from_structure(self.dataset.output_types, self.dataset.output_shapes)
+        #self.iterator = tf.data.Iterator.from_structure(self.dataset.output_types, [self.dataset.output_shapes])
+        self.iterator = tf.data.Iterator.from_structure(self.dataset.output_types, [self.output_size, self.output_size, self.channel])
         self.next_x = tf.squeeze(self.iterator.get_next())
         self.training_init_op = self.iterator.make_initializer(self.dataset)
 
@@ -279,7 +280,7 @@ class vaegan(object):
 
         image_string = tf.read_file(images_filenames)
         image_decoded = tf.image.decode_and_crop_jpeg(image_string, crop_window=[218 / 2 - 54, 178 / 2 - 54 , 108, 108], channels=3)
-        image_resized = tf.image.resize_images(image_decoded, [self.output_size, self.output_size])
+        image_resized = tf.image.resize_images(image_decoded, [self.output_size, self.output_size,self.channel])
         image_resized = image_resized / 127.5 - 1
 
         return image_resized
