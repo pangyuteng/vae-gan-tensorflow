@@ -286,8 +286,7 @@ class vaegan(object):
 
     def _read_by_function(self, filename):
 
-        array = get_image(filename, 108, is_crop=self.is_crop, resize_w=self.output_size,
-                           is_grayscale=self.is_grayscale)
+        array = get_image(filename, 108, is_crop=self.is_crop, resize_w=self.output_size,)
         real_images = np.array(array)
         
         if self.channel == 1 and len(real_images.shape)==2:
