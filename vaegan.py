@@ -8,7 +8,7 @@ from tensorflow.python.framework.ops import convert_to_tensor
 import os
 TINY = 1e-8
 d_scale_factor = 0.25
-g_scale_factor =  1 - 0.75/2
+g_scale_factor =  1 - 0.75
 
 
 class vaegan(object):
